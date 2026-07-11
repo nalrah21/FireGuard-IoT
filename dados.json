@@ -1,0 +1,8 @@
+{
+    "status": "EMERGENCIA",
+    "temperatura": "58.5",
+    "umidade": "34",
+    "gas": "910",
+    "risco": "97",
+    "motivo": "Temperatura critica e alta concentração de gás."
+}

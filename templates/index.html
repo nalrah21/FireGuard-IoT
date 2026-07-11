@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FireGuard IoT</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔥​ FireGuard IoT</h1>
+        <p class="subtitle">Sistema Inteligente de Monitoramentp</p>
+
+        <div class="cards">
+            <div class="card">
+                <h2>Status</h2>
+                {% if dados.status == "SEGURO" %}
+                <p class="status seguro">🟢​ {{ dados.status }}</p>
+
+                {% elif dados.status == "ATENCAO" %}
+                <p class="status atencao">🟡​​ {{ dados.status }}</p>
+
+                {% else %}
+                <p class="status emergencia">🔴​​ {{ dados.status }}</p>
+
+                {% endif %}
+            </div>
+
+            <div class="card">
+                <h2>Temperatura</h2>
+                <p>{{ dados.temperatura }} °C</p>
+            </div>
+
+            <div class="card">
+                <h2>Umidade</h2>
+                <p>{{ dados.umidade }} %</p>
+            </div>
+
+            <div class="card">
+                <h2>Gás</h2>
+                <p>{{ dados.gas }}</p>
+            </div>
+
+            <div class="card">
+                <h2>Nível de Risco</h2>
+
+                <div class="barra-risco">
+                    <div class="progresso" style="width: {{ dados.risco }}%;"></div>
+                </div>
+
+                <p>{{ dados.risco }} %</p>
+            </div>
+        </div>
+
+        <div class="card motivo">
+            <h2>Motivo</h2>
+            <p>{{ dados.motivo }}</p>
+        </div>
+    </div>
+
+    <footer>
+        FireGuard IoT - Desenvolvido por Harlan Sá
+    </footer>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
